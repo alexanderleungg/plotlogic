@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# PlotLogic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**PlotLogic** is an interactive 3D visualizer for mathematical functions, vector fields, and tangent planes. Built with **React Three Fiber** and **Tailwind CSS**, it allows you to plot surfaces, toggle vector fields, and explore gradients with live controls.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Surface Visualization**: Render 3D surfaces defined by expressions like `sin(x)*cos(y)` or `x^2 - y^2`.  
+- **Live Controls**: Adjust domain size, resolution, and parameters interactively.  
+- **Vector Fields**: Visualize gradient fields (∇f) with optional normalization.  
+- **Tangent Plane**: Inspect tangent planes at custom points on the surface.  
+- **Modern UI**: Styled with Tailwind CSS and glassmorphism panels.  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+plotlogic/  
+├─ public/              # Static assets (HTML, icons, etc.)  
+├─ src/                 # React / TypeScript source files  
+│   ├─ components/      # 3D components (Canvas3D, SurfaceMesh, VectorField, GradientPlane)  
+│   ├─ math/            # Math + parsing utilities  
+│   ├─ App.tsx          # Main UI layout  
+│   ├─ main.tsx         # Entry point  
+│   └─ index.css        # Tailwind + custom styles  
+├─ package.json         # Project metadata & dependencies  
+├─ package-lock.json    # Exact dependency versions  
+├─ tsconfig.json        # TypeScript configuration  
+├─ vite.config.ts       # Vite configuration  
+├─ tailwind.config.js   # Tailwind CSS setup  
+└─ postcss.config.js    # PostCSS configuration  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Setup & Run Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the repo
+git clone https://github.com/alexanderleungg/plotlogic.git  
+cd plotlogic
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 2. Install dependencies
+npm install
+
+### 3. Start development server
+npm run dev
+
+### 4. Open in browser
+Navigate to http://localhost:5173 to interact with the app.
+
+---
+
+## 🛠 How It Works
+
+- Built with **React** and **TypeScript**  
+- **React Three Fiber** + **Three.js** for 3D rendering  
+- **drei** for R3F helpers, **Leva** for UI controls, **Zustand** for state  
+- Styled with **Tailwind CSS** (with gradients + glassmorphism utilities)  
+
+---
+
+📐 Crafted with care by **Alexander Leung**.
